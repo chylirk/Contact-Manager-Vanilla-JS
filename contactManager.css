@@ -1,0 +1,257 @@
+/*
+----------------------------------------
+Tantek Celik's Whitepsace Reset
+     Author:  	Tantek Celik, Shane Riley
+    Version:  	(CC) 2010 Some Rights Reserved - http://creativecommons.org/licenses/by/2.0
+Description:	Resets default styling of common browsers to a common base
+----------------------------------------
+*/
+
+ul,ol { list-style: none; }
+h1,h2,h3,h4,h5,h6,pre,code { font-size: 1em; }
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dl,dt,dd, figure, figcaption {
+  margin: 0;
+  padding: 0; }
+a img,:link img,:visited img, fieldset { border: none; }
+address { font-style: normal; }
+header, section, article, nav, footer, hgroup, details, summary, figure, main { display: block; }
+mark {
+  color: inherit;
+  background: transparent; }
+abbr { border: none; }
+summary::-webkit-details-marker { display: none; }
+
+body {
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+  background-color: #614788;
+  padding: 30px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  color: #c4b5dc;
+  font-size: 20px;
+}
+
+main {
+  border-bottom: 1px solid #ececec;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  min-height: 400px;
+}
+
+#AddSearch {
+  background-color: #f5f5f5;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+button.AddContact {
+  background: transparent;
+  border-color: #614788;
+  border-radius: 5px;
+  border-width: 1px;
+  color: #614788;
+  font-size: 18px;
+  padding: 10px 18px;
+}
+
+button.AddContact:hover {
+  background: #614788;
+  color: #FFF;
+}
+
+#searchBox {
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  color: #878787;
+  font-size: 14px;
+  height: 25px;
+  padding: 4px 12px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+}
+
+#defaultContacts, #searchResults, #tagResults {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#tagSelector {
+  width: 20%;
+}
+
+#tagSelector h2 {
+  font-size: 18px;
+}
+
+#tagSelector ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#tagSelector li {
+  border: 1px solid #614788;
+  color: #614788;
+  margin: 5px;
+  padding: 5px;
+  background: transparent;
+  border-radius: 2px;
+}
+
+#tagSelector li:hover {
+  background: #614788;
+  color: #FFF;
+}
+
+#tagSelector li.clicked {
+  background: #614788;
+  color: #FFF;
+}
+
+#NoContacts {
+  text-align: center;
+  width: 100%;
+}
+
+#NoContacts p {
+  color: grey;
+  font-size: 22px;
+  margin: 10px 0 25px 0;
+}
+
+#interactionZone {
+  width: 60%;
+}
+
+.individualContact {
+  margin-top: 20px;
+  padding: 10px;
+  width: 22%;
+  min-width: 180px;
+}
+
+.individualContact h2 {
+  color: grey;
+  font-size: 22px;
+  margin: 10px 0 25px 0;
+}
+
+.individualContact p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.individualContact p.label {
+  font-weight: bold;
+}
+
+.individualContact button {
+  border: 1px solid #614788;
+  color: #614788;
+  margin: 10px 5px;
+  padding: 5px 10px;
+  background: transparent;
+  border-radius: 2px;
+}
+
+.individualContact button:hover {
+  background: #614788;
+  color: #FFF;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+#createContact,
+#editContact {
+  text-align: center;
+  width: 100%;
+}
+
+#createContact h1,
+#editContact h1 {
+  border-bottom: 1px solid #ececec;
+  color: #444;
+  font-size: 28px;
+}
+
+#createContact dt,
+#editContact dt {
+  float: left;
+  clear: left;
+  width: 30%;
+  text-align: right;
+  font-weight: bold;
+  color: #444;
+}
+
+#createContact dd,
+#editContact dd {
+  text-align: left;
+  margin: 0 0 30px 0;
+}
+
+#createContact input,
+#editContact input {
+  border-color: #ececec;
+  border-radius: 4px;
+  border-style: solid;
+  margin-left: 20px;
+  padding: 8px 12px;
+  width: 50%;
+}
+
+#createContact button,
+#editContact button {
+  border: 1px solid #614788;
+  border-radius: 4px;
+  color: #614788;
+  margin: 10px 5px;
+  padding: 10px 10px;
+  background: transparent;
+  font-size: 16px;
+  width: 25%;
+}
+
+#createContact button:hover,
+#editContact button:hover {
+  background: #614788;
+  color: #FFF;
+}
+
+.hidden {
+  display: none;
+  height: 0;
+  opacity: 0;
+  width: 0;
+}

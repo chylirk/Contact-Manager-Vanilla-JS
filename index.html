@@ -65,7 +65,7 @@
           <form id="editContactForm">
             <fieldset></fieldset>
             <button type="submit">Submit</button>
-            <button type="reset" value="Cancel">Cancel</button>
+            <button type="reset">Cancel</button>
           </form>
         </div>
         <div id="searchResults" class="hidden"></div>
@@ -103,37 +103,32 @@
     </script>
 
     <script id="editContactTemplate" type="text/x-handlebars">
-      <!-- <p>Edit Contact</p> -->
-      <!-- <form id="editContactForm"> -->
-          <dl data-contactid="{{id}}">
-            <dt>
-              <label for="full_name">Full Name:</label>
-            </dt>
-            <dd>
-              <input type="text" id="full_name" name="full_name" value="{{full_name}}">
-            </dd>
-            <dt>
-              <label for="email">Email address:</label>
-            </dt>
-            <dd>
-              <input type="email" id="email" name="email" value="{{email}}">
-            </dd>
-            <dt>
-              <label for="phone_number">Telephone number:</label>
-            </dt>
-            <dd>
-              <input type="tel" id="phone_number" name="phone_number" value="{{phone_number}}">
-            </dd>
-            <dt>
-              <label for="tags">Tags<label>
-            </dt>
-            <dd>
-              <input type="text" id="tags" name="tags" value="{{tags}}">
-            </dd>
-          </dl>
-        <!-- <input type="submit"> -->
-        <!-- <input type="reset" value="Cancel"> -->
-      <!-- </form> -->
+      <dl data-contactid="{{id}}">
+        <dt>
+          <label for="full_name">Full Name:</label>
+        </dt>
+        <dd>
+          <input type="text" id="full_name" name="full_name" value="{{full_name}}">
+        </dd>
+        <dt>
+          <label for="email">Email address:</label>
+        </dt>
+        <dd>
+          <input type="email" id="email" name="email" value="{{email}}">
+        </dd>
+        <dt>
+          <label for="phone_number">Telephone number:</label>
+        </dt>
+        <dd>
+          <input type="tel" id="phone_number" name="phone_number" value="{{phone_number}}">
+        </dd>
+        <dt>
+          <label for="tags">Tags<label>
+        </dt>
+        <dd>
+          <input type="text" id="tags" name="tags" value="{{tags}}">
+        </dd>
+      </dl>
     </script>
 
     <script id="defaultContactsTemplate" type="text/x-handlebars">
@@ -142,8 +137,10 @@
           {{> individualContact}}
         {{/each}}
       {{else}}
+      <div id="NoContacts">
         <p>There are no contacts.</p>
         <button class="AddContact">Add Contact</button>
+      </div>
       {{/if}}
     </script>
 
