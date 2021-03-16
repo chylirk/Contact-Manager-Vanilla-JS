@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Manager</title>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/handlebars.js"></script>
+    <link href="/stylesheets/contactManager.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <a href="/"><h1>Contact Manager</h1></a>
+      <h2>Using Handlebars</h2>
+    </header>
+    <main>
+      <div id="tagSelector"></div>
+      <div id="interactionZone">
+        <div id="AddSearch">
+          <button class="AddContact">Add Contact</button>
+          <input id="searchBox" type="text" placeholder="Search">
+        </div>
+
+        <div id="defaultContacts"></div>
+
+        <div id="createContact" class="hidden">
+          <h1>Create Contact</h1>
+          <form id="createContactForm">
+            <fieldset>
+              <dl>
+                <dt>
+                  <label for="full_name">Full Name:</label>
+                </dt>
+                <dd>
+                  <input type="text" id="full_name" name="full_name">
+                </dd>
+                <dt>
+                  <label for="email">Email address:</label>
+                </dt>
+                <dd>
+                  <input type="email" id="email" name="email">
+                </dd>
+                <dt>
+                  <label for="phone_number">Telephone number:</label>
+                </dt>
+                <dd>
+                  <input type="tel" id="phone_number" name="phone_number">
+                </dd>
+                <dt>
+                  <label for="tags">Tags</label>
+                </dt>
+                <dd>
+                  <input type="text" id="tags" name="tags">
+                </dd>
+              </dl>
+              <button type="submit">Submit</button>
+              <button type="reset">Cancel</button>
+            </fieldset>
+          </form>
+        </div>
+
+        <div id="editContact" class="hidden">
+          <h1>Edit Contact</h1>
+          <form id="editContactForm">
+            <fieldset></fieldset>
+            <button type="submit">Submit</button>
+            <button type="reset" value="Cancel">Cancel</button>
+          </form>
+        </div>
+        <div id="searchResults" class="hidden"></div>
+        <div id="tagResults" class="hidden"></div>
+      </div>
+    </main>
+
+    <script id="tagResultsTemplate" type="text/x-handlebars">
+      {{#each contacts}}
+        {{> individualContact}}
+      {{/each}}
+    </script>
+
+    <script id="tagsTemplate" type="text/x-handlebars">
+      <h2>Tags:</h2>
+      <ul class="tags">
+        {{#each tags}}
+          <li>{{this.name}} ({{this.frequency}})</li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script id="individualContactTemplate" type="text/x-handlebars">
+      <div class="individualContact">
+        <h2>{{full_name}}</h2>
+        <p class="label">Phone Number:</p>
+        <p>{{phone_number}}</p>
+        <p class="label">Email:</p>
+        <p>{{email}}</p>
+        <p class="label">Tags:</p>
+        <p>{{tags}}</p>
+        <button class="EditContact" data-contactid="{{id}}">Edit</button>
+        <button class="DeleteContact" data-contactid="{{id}}">Delete</button>
+      </div>
+    </script>
+
+    <script id="editContactTemplate" type="text/x-handlebars">
+      <!-- <p>Edit Contact</p> -->
+      <!-- <form id="editContactForm"> -->
+          <dl data-contactid="{{id}}">
+            <dt>
+              <label for="full_name">Full Name:</label>
+            </dt>
+            <dd>
+              <input type="text" id="full_name" name="full_name" value="{{full_name}}">
+            </dd>
+            <dt>
+              <label for="email">Email address:</label>
+            </dt>
+            <dd>
+              <input type="email" id="email" name="email" value="{{email}}">
+            </dd>
+            <dt>
+              <label for="phone_number">Telephone number:</label>
+            </dt>
+            <dd>
+              <input type="tel" id="phone_number" name="phone_number" value="{{phone_number}}">
+            </dd>
+            <dt>
+              <label for="tags">Tags<label>
+            </dt>
+            <dd>
+              <input type="text" id="tags" name="tags" value="{{tags}}">
+            </dd>
+          </dl>
+        <!-- <input type="submit"> -->
+        <!-- <input type="reset" value="Cancel"> -->
+      <!-- </form> -->
+    </script>
+
+    <script id="defaultContactsTemplate" type="text/x-handlebars">
+      {{#if contacts}}
+        {{#each contacts}}
+          {{> individualContact}}
+        {{/each}}
+      {{else}}
+        <p>There are no contacts.</p>
+        <button class="AddContact">Add Contact</button>
+      {{/if}}
+    </script>
+
+    <script id="searchResultsTemplate" type="text/x-handlebars">
+      {{#if contacts}}
+        {{#each contacts}}
+          {{> individualContact}}
+        {{/each}}
+      {{else}}
+        <p>There are no results for "{{search}}".</p>
+      {{/if}}
+    </script>
+
+
+    <footer>
+      <p>Developed by Holden and JS239</p>
+    </footer>
+    <script src="/javascripts/app.js"></script>
+  </body>
+</html>
